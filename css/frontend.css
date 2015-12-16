@@ -9,3 +9,8 @@ body{
   height: 50%;
 
 }
+form{
+  position: fixed;
+  bottom: 1px;
+  width: 80%;
+}
