@@ -1,7 +1,7 @@
 ## My Frontend Project
-Javascript Game
+A Travel Through Time
 ### General Project Summary
-Going to utilize the Scratch API or Google Drawings API to allow user to create either enemy/own character, that will be involved in a side scrolling game.
+Use the Face++ API to get gender, race, facial accessories and age and user Firebase to update the site.
 
 ### Technologies Used
 HTML5
@@ -11,11 +11,14 @@ Jquery
 Bootstrap
 
 
+
 ### Deployed Link
 
 
 ### API's Used
-- http://wiki.scratch.mit.edu/wiki/Scratch_API_(2.0)
+-http://www.faceplusplus.com/
+-https://www.firebase.com/
+
 
 
 ### Trello Link
