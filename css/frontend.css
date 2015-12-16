@@ -9,8 +9,8 @@ body{
   height: 50%;
 
 }
-form{
-  position: fixed;
+
+.fixed-bottom{
   bottom: 1px;
-  width: 80%;
+  position: fixed;
 }
