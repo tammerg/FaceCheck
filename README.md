@@ -1,5 +1,5 @@
 ## My Frontend Project
-A Travel Through Time
+FaceCheck
 ### General Project Summary
 Use the Face++ API to get gender, race, facial accessories and age and user Firebase to update the site.
 
