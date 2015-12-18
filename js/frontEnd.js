@@ -9,27 +9,41 @@ window.urlBuild = {
   }
 }
 
+
+
+
+
+
+
 $(document).ready(function (){
   $(".urlBtn").on("click", urlReader);
 
+  $(".img-dropbox").on("dragenter", noopHandler);
+  $(".img-dropbox").on("dragexit", noopHandler);
+  $(".img-dropbox").on("dragover", noopHandler);
+  var dropbox = document.getElementById('dropbox');
+  dropbox.addEventListener('drop', drop, false);
+
+
+
+
+
+
+
+
 function urlReader () {
   var imgLink = $("#url-value").val();
-
   var encodedURL = encodeURIComponent(imgLink);
-
-  alert(encodedURL);
-
   var fullUrl = urlBuild.apiAcc.faceApi + urlBuild.apiAcc.meth + "url=" + encodedURL + "&api_secret=" 
       + urlBuild.apiAcc.api_secret + "&api_key=" + urlBuild.apiAcc.api_key + "&attribute=" + urlBuild.apiAcc.attributes;
-
+  alert(encodedURL);
   alert(fullUrl);
 
-
-$.ajax ({
-  type: "GET",
-  url: fullUrl,
-  success: faceCall
-});
+  $.ajax ({
+    type: "GET",
+    url: fullUrl,
+    success: faceCall
+  });
 }
 
 function faceCall(imageData) {
@@ -39,9 +53,18 @@ function faceCall(imageData) {
   var newP = $("<p>");
   newP.append(callResults);
   $("#testApiInfo").append(newP);
-
- 
 }
 
+// drop box functions
+function noopHandler(evt) {
+    evt.stopPropagation();
+    evt.preventDefault();
+}
+function drop(evt) {
+    evt.stopPropagation();
+    evt.preventDefault();
+    var imageUrl = evt.dataTransfer.getData("URL");
+    urlReader(imageUrl);
+}
 
 });
