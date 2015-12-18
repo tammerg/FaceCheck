@@ -38,6 +38,7 @@ function urlReader () {
   ajxStore.urlBuild.encodedURL = encodeURIComponent(imgLink);
   console.log(ajxStore.urlBuild.encodedURL);
   facePlusAjax();
+  alchemyAjax();
 }
 
 // Face++ URL building and Ajax call
@@ -86,24 +87,50 @@ $.ajax ({
   $("#facePlusAPI").append(newPBoss);
 }
 
+function alchemyAjax() {
+    apiAcc = {
+    alchApi: "http://gateway-a.watsonplatform.net/calls/image/ImageGetRankedImageFaceTags?",
+    url: "http%3A%2F%2Fblackathlete.net%2Fwp-content%2Fuploads%2F2015%2F08%2FBarack-Obama-200x200.jpg",
+    apikey: "c84b707045f2eaf44ac7896ca8638274c82489c4",
+    output: "json",
+    }
+
+
+  var fullUrl = apiAcc.alchApi + "&url=" + ajxStore.urlBuild.encodedURL + "&apikey=" + apiAcc.apikey + "&outputMode=" + apiAcc.output;
+ 
+  console.log(fullUrl);
+
+$.ajax ({
+  type: "GET",
+  url: fullUrl,
+  success: alchemyShow
+
+});
+}
+
+ function alchemyShow(imageData) {
+  console.log(imageData);
+  var callResultsAge = imageData.imageFaces[0].age.ageRange;
+  var callResultsGender = imageData.imageFaces[0].gender.gender;
+  var callResultsIdentity =  imageData.imageFaces[0].identity.disambiguated.name;
+  console.log(callResultsAge, callResultsGender, callResultsIdentity);
+  var newPBoss = $("<p>");
+  var newSCard = $("<span>").html("Alchemy Results").addClass("card-title");
+  var newPAge = $("<p>").html("Age: ");
+  var newPGender = $("<p>").html("    Gender: ");
+  var newPIdentity = $("<p>").html("      Celebrity Name: ");
+ 
+  newPAge.append(callResultsAge);
+  newPGender.append(callResultsGender);
+  newPIdentity.append(callResultsIdentity);
+  newPBoss.append(newSCard).append(newPAge).append(newPGender).append(newPIdentity);
+  $("#alchemyAPI").empty();
+  $("#alchemyAPI").append(newPBoss);
+}
 
 
 
-
-
-
-
-
-
-// $.ajax({
-  // type: "GET",
-  // url: http://gateway-a.watsonplatform.net/calls/url/URLGetRankedImageFaceTags
-
-
- // apiAlch {
-    // api_key: "c84b707045f2eaf44ac7896ca8638274c82489c4",
-
- // }
+ 
 
 });
 
