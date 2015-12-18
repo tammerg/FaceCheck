@@ -3,6 +3,12 @@ window.ajxStore {
     encodedURL: 0 
 }
 
+
+
+
+
+
+
 $(document).ready(function (){
   $(".urlBtn").on("click", urlReader);
 
@@ -30,6 +36,33 @@ $.ajax ({
   success: faceCall
 
 });
+  $(".img-dropbox").on("dragenter", noopHandler);
+  $(".img-dropbox").on("dragexit", noopHandler);
+  $(".img-dropbox").on("dragover", noopHandler);
+  var dropbox = document.getElementById('dropbox');
+  dropbox.addEventListener('drop', drop, false);
+
+
+
+
+
+
+
+
+function urlReader () {
+  var imgLink = $("#url-value").val();
+  var encodedURL = encodeURIComponent(imgLink);
+  var fullUrl = urlBuild.apiAcc.faceApi + urlBuild.apiAcc.meth + "url=" + encodedURL + "&api_secret=" 
+      + urlBuild.apiAcc.api_secret + "&api_key=" + urlBuild.apiAcc.api_key + "&attribute=" + urlBuild.apiAcc.attributes;
+  alert(encodedURL);
+  alert(fullUrl);
+
+  $.ajax ({
+    type: "GET",
+    url: fullUrl,
+    success: faceCall
+  });
+}
 
 function faceCall(imageData) {
   console.log(imageData);
@@ -40,6 +73,17 @@ function faceCall(imageData) {
   $("#testApiInfo").append(newP);
 }
 
+// drop box functions
+function noopHandler(evt) {
+    evt.stopPropagation();
+    evt.preventDefault();
+}
+function drop(evt) {
+    evt.stopPropagation();
+    evt.preventDefault();
+    var imageUrl = evt.dataTransfer.getData("URL");
+    urlReader(imageUrl);
+}
 
 
  apiAlch {
