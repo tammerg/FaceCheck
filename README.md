@@ -18,7 +18,7 @@ Bootstrap
 ### API's Used
 -http://www.faceplusplus.com/
 -https://www.firebase.com/
-
+-http://www.alchemyapi.com/products/alchemyvision/face-detection
 
 
 ### Trello Link
