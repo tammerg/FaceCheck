@@ -3,10 +3,8 @@ body{
   width: 100%;
 }
 .img-dropbox {
-  position:absolute;
-  right: 25%;
-  bottom: 30%;
-  height: 50%;
+  width:100%;
+  height: 440px;
 
 }
 
