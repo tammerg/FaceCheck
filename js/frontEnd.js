@@ -26,8 +26,11 @@ function noopHandler(evt) {
 function drop(evt) {
     evt.stopPropagation();
     evt.preventDefault();
-    var imageUrl = evt.dataTransfer.getData("URL");
-    urlReader(imageUrl);
+    var imgLink = evt.dataTransfer.getData("URL");
+    ajxStore.urlBuild.encodedURL = encodeURIComponent(imgLink);
+    console.log(ajxStore.urlBuild.encodedURL);
+    facePlusAjax();
+    alchemyAjax();
 }
 
 
