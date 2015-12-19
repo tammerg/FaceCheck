@@ -4,54 +4,6 @@ window.ajxStore = {
   }
 }
 
-$(document).ready(function (){
-  $(".urlBtn").on("click", urlReader);
-  
-// initialize dropbox
-  $(".img-dropbox").on("dragenter", noopHandler);
-  $(".img-dropbox").on("dragexit", noopHandler);
-  $(".img-dropbox").on("dragover", noopHandler);
-  var dropbox = document.getElementById('dropbox');
-  dropbox.addEventListener('drop', drop, false);  
-
-
-// drop box functions
-
-function noopHandler(evt) {
-  evt.stopPropagation();
-  evt.preventDefault();
-  }
-
-function drop(evt) {
-  evt.stopPropagation();
-  evt.preventDefault();
-  var imgLink = evt.dataTransfer.getData("URL");
-  ajxStore.urlBuild.encodedURL = encodeURIComponent(imgLink);
-  showImg(imgLink);
-  facePlusAjax();
-  alchemyAjax();    
-  }
-
-//show image function
-function showImg(imgLink) {
-  var newimg = $("<img>");
-  $(newimg).attr("src", imgLink).addClass("responsive valign");
-  $("#dropbox").empty();
-  $("#dropbox").append(newimg); 
-  }
-
-
-// read from URL input or dropped-in image
-
-function urlReader () {
-  var imgLink = $("#url-value").val();
-  showImg(imgLink);
-  ajxStore.urlBuild.encodedURL = encodeURIComponent(imgLink);
-  console.log(ajxStore.urlBuild.encodedURL);
-  facePlusAjax();
-  alchemyAjax();
-}
-
 // Face++ URL building and Ajax call
 
 function facePlusAjax() {
@@ -91,12 +43,12 @@ function facePlusShow(imageData) {
 function alchemyAjax() {
   apiAcc = {
   alchApi: "http://gateway-a.watsonplatform.net/calls/image/ImageGetRankedImageFaceTags?",
-  url: "http%3A%2F%2Fblackathlete.net%2Fwp-content%2Fuploads%2F2015%2F08%2FBarack-Obama-200x200.jpg",
   apikey: "c84b707045f2eaf44ac7896ca8638274c82489c4",
-  output: "json",
+  output: "json"
   }
   var fullUrl = apiAcc.alchApi + "&url=" + ajxStore.urlBuild.encodedURL + "&apikey=" + apiAcc.apikey + "&outputMode=" + apiAcc.output;
-$.ajax ({
+  
+  $.ajax ({
   type: "GET",
   url: fullUrl,
   success: alchemyShow
@@ -104,17 +56,14 @@ $.ajax ({
 
   }
 
-
-
-
  function alchemyShow(imageData) {
   var callResultsAge = imageData.imageFaces[0].age.ageRange;
   var callResultsGender = imageData.imageFaces[0].gender.gender;
   var newPBoss = $("<p>");
   var newSCard = $("<span>").html("Alchemy Results").addClass("card-title");
   var newPAge = $("<p>").html("Age: ").append(callResultsAge);
-  var newPGender = $("<p>").html("    Gender: ").append(callResultsGender);
-  var newPIdentity = $("<p>").html("      Celebrity Name: ");
+  var newPGender = $("<p>").html("Gender: ").append(callResultsGender);
+  var newPIdentity = $("<p>").html("Celebrity Name: ");
   var newPBossAppend = newPBoss.append(newSCard).append(newPAge).append(newPGender)
 
   if (imageData.imageFaces[0].identity !== undefined) {
@@ -123,12 +72,7 @@ $.ajax ({
     newPBossAppend.append(newPIdentity);
     }
   
-
-  newPBossAppend;
   $("#alchemyAPI").empty();
-  $("#alchemyAPI").append(newPBoss);
+  $("#alchemyAPI").append(newPBossAppend);
   }
-
-});
-
 
