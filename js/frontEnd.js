@@ -35,9 +35,10 @@ function drop(evt) {
 }
 //show image function
 function showImg(imgLink) {
-  var img = $('<img id="dynamic">');
-  img.attr("src", imgLink);
-  img.appendTo(".img-dropbox");  
+  var newimg = $("<img>");
+  $(newimg).attr("src", imgLink).addClass("responsive-img");
+  $("#dropbox").append(newimg);
+    
 }
 
 // read from URL input or dropped-in image
