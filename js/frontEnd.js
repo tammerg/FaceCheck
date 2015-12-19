@@ -28,20 +28,28 @@ function drop(evt) {
     evt.preventDefault();
     var imgLink = evt.dataTransfer.getData("URL");
     ajxStore.urlBuild.encodedURL = encodeURIComponent(imgLink);
-    console.log(ajxStore.urlBuild.encodedURL);
+    showImg(imgLink);
     facePlusAjax();
     alchemyAjax();
+    
 }
-
+//show image function
+function showImg(imgLink) {
+  var img = $('<img id="dynamic">');
+  img.attr("src", imgLink);
+  img.appendTo(".img-dropbox");  
+}
 
 // read from URL input or dropped-in image
 
 function urlReader () {
   var imgLink = $("#url-value").val();
+  showImg(imgLink);
   ajxStore.urlBuild.encodedURL = encodeURIComponent(imgLink);
   console.log(ajxStore.urlBuild.encodedURL);
   facePlusAjax();
   alchemyAjax();
+ 
 }
 
 // Face++ URL building and Ajax call
