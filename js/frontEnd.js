@@ -120,33 +120,25 @@ $.ajax ({
 }
 
  function alchemyShow(imageData) {
-  
-
   var callResultsAge = imageData.imageFaces[0].age.ageRange;
   var callResultsGender = imageData.imageFaces[0].gender.gender;
-  // var callResultsIdentity =  imageData.imageFaces[0].identity.name;
   var newPBoss = $("<p>");
   var newSCard = $("<span>").html("Alchemy Results").addClass("card-title");
- 
   var newPAge = $("<p>").html("Age: ").append(callResultsAge);
   var newPGender = $("<p>").html("    Gender: ").append(callResultsGender);
   var newPIdentity = $("<p>").html("      Celebrity Name: ");
   var newPBossAppend = newPBoss.append(newSCard).append(newPAge).append(newPGender)
 
-  if (imageData.imageFaces[0].identity === 'undefined') {
+  if (imageData.imageFaces[0].identity !== undefined) {
     var callResultsIdentity =  imageData.imageFaces[0].identity.name;
     newPIdentity.append(callResultsIdentity);
     newPBossAppend.append(newPIdentity);
   }
-  else {
-  
-  }
-  
 
   newPBossAppend;
   $("#alchemyAPI").empty();
   $("#alchemyAPI").append(newPBoss);
-}
+  }
 
 
 });
