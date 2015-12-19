@@ -2,9 +2,9 @@
 <html>
 <head>
   <title>FaceCheck</title>
-  <link rel="stylesheet" type="text/css" href="css/frontend.css">
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+  <link rel="stylesheet" type="text/css" href="css/frontend.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
@@ -24,60 +24,53 @@
       </div>
     </div>
     <div class="row">
-      <div id="dropbox" class="col s6 img-dropbox indigo lighten-5">
-      </div>  
-      <div class="col s6 m6">
-        <div class="card z-depth-3 blue-grey darken-1">
-          <div class="card-content white-text" id="facePlusAPI">
-            <span class="card-title">Face++ Results</span>
-          </div>
-          <div class="card-action">
-            <a href="http://www.faceplusplus.com">Link to Face++</a>
-          </div>
+      <div class="col s12 m6">
+        <div id="dropbox" class="col s12 img-dropbox indigo lighten-5 valign-wrapper">
+        </div>  
+        <div class="col s12 urlInput">
+          <div class="col s10">
+          <input id="url-value" placeholder="Paste URL link here" type="text"> 
         </div>
-      </div>
-      <div class="col s6 m6">
-        <div class="card z-depth-3 blue-grey darken-2">
-          <div class="card-content white-text" id="alchemyAPI">
-            <span class="card-title">Alchemy API Results</span>
-          </div>
-          <div class="card-action">
-            <a href="http://www.alchemyapi.com/products/alchemyvision/face-detection">Link to Alchemy</a>
-          </div>
-        </div>
-      </div>
-      <div class="col s6 m6">
-        <div class="card z-depth-3 blue-grey darken-3">
-          <div class="card-content white-text">
-            <span class="card-title">API Results</span>
-            <p></p>
-          </div>
-          <div class="card-action">
-            <a href="#">Link to Other API Site</a>
-          </div>
+        <div class="col s2">
+          <button class=" z-depth-5 btn waves-effect waves-light urlBtn" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+          </button>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col s4">
-        <input id="url-value" placeholder="Paste URL link here" type="text"> 
+    <div class="col s12 m6">
+      <div class="card z-depth-3 blue-grey darken-1">
+        <div class="card-content white-text" id="facePlusAPI">
+          <span class="card-title">Face++ Results</span>
+        </div>
+        <div class="card-action">
+          <a href="http://www.faceplusplus.com">Link to Face++</a>
+        </div>
       </div>
-      <div class="col s2">
-        <button class=" z-depth-5 btn waves-effect waves-light urlBtn" type="submit" name="action">Submit
-          <i class="material-icons right">send</i>
-        </button>
-      </div> 
-    </div>
-    <div class="row">
-      <div class="col s10" id="testApiInfo">
+      <div class="card z-depth-3 blue-grey darken-2">
+        <div class="card-content white-text" id="alchemyAPI">
+          <span class="card-title">Alchemy API Results</span>
+        </div>
+        <div class="card-action">
+          <a href="http://www.alchemyapi.com/products/alchemyvision/face-detection">Link to Alchemy</a>
+        </div>
       </div>
-    </div>
+      <div class="card z-depth-3 blue-grey darken-3">
+        <div class="card-content white-text">
+          <span class="card-title">API Results</span>
+          <p></p>
+        </div>
+        <div class="card-action">
+          <a href="#">Link to Other API Site</a>
+        </div>
+      </div>
+    </div> 
   </main>
   <footer class="page-footer black">
     <div class="row">
       <div class="col l6 s6">
         <h5 class="white-text center">Thanks</h5>
-          <p class="grey-text center text-lighten-4">A thank you to Alchemy and Face++ for allowing us to utilize their APIs!</p>
+        <p class="grey-text center text-lighten-4">A thank you to Alchemy and Face++ for allowing us to utilize their APIs!</p>
         </div>
       </div>
     </div>
