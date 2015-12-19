@@ -1,6 +1,9 @@
 body{
   height: 100%;
   width: 100%;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 .img-dropbox {
   width:100%;
@@ -13,11 +16,6 @@ body{
 
 html {
   font-family: 
-}
-body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
 }
 
 main {
