@@ -36,6 +36,7 @@ function drop(evt) {
 function showImg(imgLink) {
   var newimg = $("<img>");
   $(newimg).attr("src", imgLink).addClass("responsive valign");
+  $("#dropbox").empty();
   $("#dropbox").append(newimg); 
   }
 
@@ -49,8 +50,7 @@ function urlReader () {
   console.log(ajxStore.urlBuild.encodedURL);
   facePlusAjax();
   alchemyAjax();
- 
-  }
+}
 
 // Face++ URL building and Ajax call
 
@@ -102,8 +102,9 @@ $.ajax ({
   success: alchemyShow
   });
 
-  
   }
+
+
 
 
  function alchemyShow(imageData) {
