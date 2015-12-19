@@ -11,7 +11,10 @@ body{
   width:100%;
   height: 440px;
 }
-
+.responsive {
+  height: 440px;
+  width: 620px;
+}
 .fixed-bottom{
   bottom: 1px;
   position: fixed;
