@@ -2,17 +2,16 @@ window.ajxStore = {
   urlBuild: {
     encodedURL: " " 
   }
+}
 
 $(document).ready(function (){
   $(".urlBtn").on("click", urlReader);
-
 // initialize dropbox
-
- $(".img-dropbox").on("dragenter", noopHandler);
- $(".img-dropbox").on("dragexit", noopHandler);
- $(".img-dropbox").on("dragover", noopHandler);
- var dropbox = document.getElementById('dropbox');
- dropbox.addEventListener('drop', drop, false);  
+  $(".img-dropbox").on("dragenter", noopHandler);
+  $(".img-dropbox").on("dragexit", noopHandler);
+  $(".img-dropbox").on("dragover", noopHandler);
+  var dropbox = document.getElementById('dropbox');
+  dropbox.addEventListener('drop', drop, false);  
 
 
 // drop box functions
@@ -29,15 +28,13 @@ function drop(evt) {
   ajxStore.urlBuild.encodedURL = encodeURIComponent(imgLink);
   showImg(imgLink);
   facePlusAjax();
-  alchemyAjax();
-    
+  alchemyAjax();    
   }
 //show image function
 function showImg(imgLink) {
   var newimg = $("<img>");
   $(newimg).attr("src", imgLink).addClass("responsive valign");
-  $("#dropbox").append(newimg);
-    
+  $("#dropbox").append(newimg); 
   }
 
 // read from URL input or dropped-in image
@@ -62,11 +59,8 @@ function facePlusAjax() {
   api_key: "f53e2536752725f3bed49a4ede929058",
   attributes: "age,glass,pose,gender,race,smiling"
   }
-
-
   var fullUrl = apiAcc.faceApi + apiAcc.meth + "url=" + ajxStore.urlBuild.encodedURL + "&api_secret=" 
       + apiAcc.api_secret + "&api_key=" + apiAcc.api_key + "&attribute=" + apiAcc.attributes;
-
   $.ajax ({
     type: "GET",
     url: fullUrl,
@@ -98,36 +92,35 @@ function alchemyAjax() {
   apikey: "c84b707045f2eaf44ac7896ca8638274c82489c4",
   output: "json",
   }
-
-
   var fullUrl = apiAcc.alchApi + "&url=" + ajxStore.urlBuild.encodedURL + "&apikey=" + apiAcc.apikey + "&outputMode=" + apiAcc.output;
- 
-  console.log(fullUrl);
-
 $.ajax ({
   type: "GET",
   url: fullUrl,
   success: alchemyShow
   });
+
   }
 
-function alchemyShow(imageData) {
+
+
+
+ function alchemyShow(imageData) {
   var callResultsAge = imageData.imageFaces[0].age.ageRange;
   var callResultsGender = imageData.imageFaces[0].gender.gender;
-  // var callResultsIdentity =  imageData.imageFaces[0].identity.name;
   var newPBoss = $("<p>");
   var newSCard = $("<span>").html("Alchemy Results").addClass("card-title");
- 
   var newPAge = $("<p>").html("Age: ").append(callResultsAge);
   var newPGender = $("<p>").html("    Gender: ").append(callResultsGender);
   var newPIdentity = $("<p>").html("      Celebrity Name: ");
   var newPBossAppend = newPBoss.append(newSCard).append(newPAge).append(newPGender)
 
-  if (imageData.imageFaces[0].identity === 'undefined') {
+  if (imageData.imageFaces[0].identity !== undefined) {
     var callResultsIdentity =  imageData.imageFaces[0].identity.name;
     newPIdentity.append(callResultsIdentity);
     newPBossAppend.append(newPIdentity);
     }
+  
+
   newPBossAppend;
   $("#alchemyAPI").empty();
   $("#alchemyAPI").append(newPBoss);
