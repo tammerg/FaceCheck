@@ -28,12 +28,14 @@ function drop(evt) {
   ajxStore.urlBuild.encodedURL = encodeURIComponent(imgLink);
   showImg(imgLink);
   facePlusAjax();
-  alchemyAjax();    
+  alchemyAjax(); 
+  $("#dropbox").empty();   
   }
 //show image function
 function showImg(imgLink) {
   var newimg = $("<img>");
   $(newimg).attr("src", imgLink).addClass("responsive valign");
+  $("#dropbox").empty();
   $("#dropbox").append(newimg); 
   }
 
@@ -47,8 +49,7 @@ function urlReader () {
   console.log(ajxStore.urlBuild.encodedURL);
   facePlusAjax();
   alchemyAjax();
- 
-  }
+}
 
 // Face++ URL building and Ajax call
 
