@@ -12,7 +12,10 @@ body{
   height: 440px;
   overflow: hidden;
 }
-
+.responsive {
+  height: 440px;
+  width: 620px;
+}
 .fixed-bottom{
   bottom: 1px;
   position: fixed;

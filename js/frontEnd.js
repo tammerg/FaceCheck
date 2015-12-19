@@ -86,7 +86,7 @@ $.ajax ({
   console.log(callResultsAge, callResultsGender, callResultsSmile, callResultsGlass);
   var newPBoss = $("<p>");
   var newSCard = $("<span>").html("Face++ Results").addClass("card-title");
-  var newPAge = $("<p>").html("Age: ");
+  var newPAge = $("<p>").html("Age:");
   var newPGender = $("<p>").html("    Gender: ");
   var newPSmile = $("<p>").html("      Smile Degree: ");
   var newPGlass = $("<p>").html("        Glasses? ");
@@ -120,29 +120,27 @@ $.ajax ({
 }
 
  function alchemyShow(imageData) {
-  console.log(imageData);
   var callResultsAge = imageData.imageFaces[0].age.ageRange;
   var callResultsGender = imageData.imageFaces[0].gender.gender;
-  var callResultsIdentity =  imageData.imageFaces[0].identity.disambiguated.name;
-  console.log(callResultsAge, callResultsGender, callResultsIdentity);
   var newPBoss = $("<p>");
   var newSCard = $("<span>").html("Alchemy Results").addClass("card-title");
-  var newPAge = $("<p>").html("Age: ");
-  var newPGender = $("<p>").html("    Gender: ");
+  var newPAge = $("<p>").html("Age: ").append(callResultsAge);
+  var newPGender = $("<p>").html("    Gender: ").append(callResultsGender);
   var newPIdentity = $("<p>").html("      Celebrity Name: ");
- 
-  newPAge.append(callResultsAge);
-  newPGender.append(callResultsGender);
-  newPIdentity.append(callResultsIdentity);
-  newPBoss.append(newSCard).append(newPAge).append(newPGender).append(newPIdentity);
+  var newPBossAppend = newPBoss.append(newSCard).append(newPAge).append(newPGender)
+
+  if (imageData.imageFaces[0].identity !== undefined) {
+    var callResultsIdentity =  imageData.imageFaces[0].identity.name;
+    newPIdentity.append(callResultsIdentity);
+    newPBossAppend.append(newPIdentity);
+  }
+
+  newPBossAppend;
   $("#alchemyAPI").empty();
   $("#alchemyAPI").append(newPBoss);
-}
+  }
 
 
 });
-
-
-
 
 
