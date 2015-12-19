@@ -2,7 +2,6 @@ window.ajxStore = {
   urlBuild: {
     encodedURL: " " 
   }
-}
 
 $(document).ready(function (){
   $(".urlBtn").on("click", urlReader);
@@ -21,7 +20,7 @@ $(document).ready(function (){
 function noopHandler(evt) {
   evt.stopPropagation();
   evt.preventDefault();
-}
+  }
 
 function drop(evt) {
   evt.stopPropagation();
@@ -32,14 +31,14 @@ function drop(evt) {
   facePlusAjax();
   alchemyAjax();
     
-}
+  }
 //show image function
 function showImg(imgLink) {
   var newimg = $("<img>");
-  $(newimg).attr("src", imgLink).addClass("responsive");
+  $(newimg).attr("src", imgLink).addClass("responsive valign");
   $("#dropbox").append(newimg);
     
-}
+  }
 
 // read from URL input or dropped-in image
 
@@ -51,7 +50,7 @@ function urlReader () {
   facePlusAjax();
   alchemyAjax();
  
-}
+  }
 
 // Face++ URL building and Ajax call
 
@@ -59,45 +58,38 @@ function facePlusAjax() {
   apiAcc = {
   faceApi: "https://apius.faceplusplus.com/v2/",
   meth: "detection/detect?",
-  url: "http%3A%2F%2Fcdn.collider.com%2Fwp-content%2Fuploads%2Fanchorman-2-sequel-image-will-ferrell.jpg",
   api_secret: "PTwMJGAq9Qnqg34EozZpH9mhwsy4mRbF",
   api_key: "f53e2536752725f3bed49a4ede929058",
   attributes: "age,glass,pose,gender,race,smiling"
-}
+  }
 
 
   var fullUrl = apiAcc.faceApi + apiAcc.meth + "url=" + ajxStore.urlBuild.encodedURL + "&api_secret=" 
       + apiAcc.api_secret + "&api_key=" + apiAcc.api_key + "&attribute=" + apiAcc.attributes;
 
-$.ajax ({
-  type: "GET",
-  url: fullUrl,
-  success: facePlusShow
+  $.ajax ({
+    type: "GET",
+    url: fullUrl,
+    success: facePlusShow
+    });
+  }
 
-});
-}
-
- function facePlusShow(imageData) {
+function facePlusShow(imageData) {
   console.log(imageData);
   var callResultsAge = imageData.face[0].attribute.age.value;
   var callResultsGender = imageData.face[0].attribute.gender.value;
   var callResultsSmile =  imageData.face[0].attribute.smiling.value;
   var callResultsGlass = imageData.face[0].attribute.glass.value;
-  console.log(callResultsAge, callResultsGender, callResultsSmile, callResultsGlass);
   var newPBoss = $("<p>");
   var newSCard = $("<span>").html("Face++ Results").addClass("card-title");
-  var newPAge = $("<p>").html("Age:");
-  var newPGender = $("<p>").html("    Gender: ");
-  var newPSmile = $("<p>").html("      Smile Degree: ");
-  var newPGlass = $("<p>").html("        Glasses? ");
-  newPAge.append(callResultsAge);
-  newPGender.append(callResultsGender);
-  newPSmile.append(callResultsSmile);
-  newPGlass.append(callResultsGlass);
+  var newPAge = $("<p>").html("Age:").append(callResultsAge);
+  var newPGender = $("<p>").html("    Gender: ").append(callResultsGender);
+  var newPSmile = $("<p>").html("      Smile Degree: ").append(callResultsSmile);
+  var newPGlass = $("<p>").html("        Glasses? ").append(callResultsGlass);
   newPBoss.append(newSCard).append(newPAge).append(newPGender).append(newPSmile).append(newPGlass);
   $("#facePlusAPI").empty();
   $("#facePlusAPI").append(newPBoss);
-}
+  }
 
 function alchemyAjax() {
   apiAcc = {
@@ -117,11 +109,9 @@ $.ajax ({
   url: fullUrl,
   success: alchemyShow
   });
-}
+  }
 
- function alchemyShow(imageData) {
-  
-
+function alchemyShow(imageData) {
   var callResultsAge = imageData.imageFaces[0].age.ageRange;
   var callResultsGender = imageData.imageFaces[0].gender.gender;
   // var callResultsIdentity =  imageData.imageFaces[0].identity.name;
@@ -137,17 +127,11 @@ $.ajax ({
     var callResultsIdentity =  imageData.imageFaces[0].identity.name;
     newPIdentity.append(callResultsIdentity);
     newPBossAppend.append(newPIdentity);
-  }
-  else {
-  
-  }
-  
-
+    }
   newPBossAppend;
   $("#alchemyAPI").empty();
   $("#alchemyAPI").append(newPBoss);
-}
-
+  }
 
 });
 
