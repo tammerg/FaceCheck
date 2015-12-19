@@ -86,7 +86,7 @@ $.ajax ({
   console.log(callResultsAge, callResultsGender, callResultsSmile, callResultsGlass);
   var newPBoss = $("<p>");
   var newSCard = $("<span>").html("Face++ Results").addClass("card-title");
-  var newPAge = $("<p>").html("Age: ");
+  var newPAge = $("<p>").html("Age:");
   var newPGender = $("<p>").html("    Gender: ");
   var newPSmile = $("<p>").html("      Smile Degree: ");
   var newPGlass = $("<p>").html("        Glasses? ");
@@ -127,9 +127,9 @@ $.ajax ({
   console.log(callResultsAge, callResultsGender, callResultsIdentity);
   var newPBoss = $("<p>");
   var newSCard = $("<span>").html("Alchemy Results").addClass("card-title");
-  var newPAge = $("<p>").html("Age: ");
-  var newPGender = $("<p>").html("    Gender: ");
-  var newPIdentity = $("<p>").html("      Celebrity Name: ");
+  var newPAge = $("<p>").html("Age:");
+  var newPGender = $("<p>").html("Gender:");
+  var newPIdentity = $("<p>").html("Celebrity Name:");
  
   newPAge.append(callResultsAge);
   newPGender.append(callResultsGender);
