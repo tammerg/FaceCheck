@@ -19,18 +19,18 @@ $(document).ready(function (){
 // drop box functions
 
 function noopHandler(evt) {
-    evt.stopPropagation();
-    evt.preventDefault();
+  evt.stopPropagation();
+  evt.preventDefault();
 }
 
 function drop(evt) {
-    evt.stopPropagation();
-    evt.preventDefault();
-    var imgLink = evt.dataTransfer.getData("URL");
-    ajxStore.urlBuild.encodedURL = encodeURIComponent(imgLink);
-    showImg(imgLink);
-    facePlusAjax();
-    alchemyAjax();
+  evt.stopPropagation();
+  evt.preventDefault();
+  var imgLink = evt.dataTransfer.getData("URL");
+  ajxStore.urlBuild.encodedURL = encodeURIComponent(imgLink);
+  showImg(imgLink);
+  facePlusAjax();
+  alchemyAjax();
     
 }
 //show image function
@@ -56,14 +56,14 @@ function urlReader () {
 // Face++ URL building and Ajax call
 
 function facePlusAjax() {
-    apiAcc = {
-    faceApi: "https://apius.faceplusplus.com/v2/",
-    meth: "detection/detect?",
-    url: "http%3A%2F%2Fcdn.collider.com%2Fwp-content%2Fuploads%2Fanchorman-2-sequel-image-will-ferrell.jpg",
-    api_secret: "PTwMJGAq9Qnqg34EozZpH9mhwsy4mRbF",
-    api_key: "f53e2536752725f3bed49a4ede929058",
-    attributes: "age,glass,pose,gender,race,smiling"
-    }
+  apiAcc = {
+  faceApi: "https://apius.faceplusplus.com/v2/",
+  meth: "detection/detect?",
+  url: "http%3A%2F%2Fcdn.collider.com%2Fwp-content%2Fuploads%2Fanchorman-2-sequel-image-will-ferrell.jpg",
+  api_secret: "PTwMJGAq9Qnqg34EozZpH9mhwsy4mRbF",
+  api_key: "f53e2536752725f3bed49a4ede929058",
+  attributes: "age,glass,pose,gender,race,smiling"
+}
 
 
   var fullUrl = apiAcc.faceApi + apiAcc.meth + "url=" + ajxStore.urlBuild.encodedURL + "&api_secret=" 
@@ -100,12 +100,12 @@ $.ajax ({
 }
 
 function alchemyAjax() {
-    apiAcc = {
-    alchApi: "http://gateway-a.watsonplatform.net/calls/image/ImageGetRankedImageFaceTags?",
-    url: "http%3A%2F%2Fblackathlete.net%2Fwp-content%2Fuploads%2F2015%2F08%2FBarack-Obama-200x200.jpg",
-    apikey: "c84b707045f2eaf44ac7896ca8638274c82489c4",
-    output: "json",
-    }
+  apiAcc = {
+  alchApi: "http://gateway-a.watsonplatform.net/calls/image/ImageGetRankedImageFaceTags?",
+  url: "http%3A%2F%2Fblackathlete.net%2Fwp-content%2Fuploads%2F2015%2F08%2FBarack-Obama-200x200.jpg",
+  apikey: "c84b707045f2eaf44ac7896ca8638274c82489c4",
+  output: "json",
+  }
 
 
   var fullUrl = apiAcc.alchApi + "&url=" + ajxStore.urlBuild.encodedURL + "&apikey=" + apiAcc.apikey + "&outputMode=" + apiAcc.output;
@@ -116,8 +116,7 @@ $.ajax ({
   type: "GET",
   url: fullUrl,
   success: alchemyShow
-
-});
+  });
 }
 
  function alchemyShow(imageData) {
@@ -140,9 +139,6 @@ $.ajax ({
   $("#alchemyAPI").append(newPBoss);
 }
 
-
-
- 
 
 });
 
