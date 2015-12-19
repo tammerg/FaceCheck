@@ -28,8 +28,7 @@ function drop(evt) {
   ajxStore.urlBuild.encodedURL = encodeURIComponent(imgLink);
   showImg(imgLink);
   facePlusAjax();
-  alchemyAjax(); 
-  $("#dropbox").empty();   
+  alchemyAjax();    
   }
 //show image function
 function showImg(imgLink) {
@@ -101,8 +100,9 @@ $.ajax ({
   success: alchemyShow
   });
 
-  
   }
+
+
 
 
  function alchemyShow(imageData) {
@@ -125,6 +125,7 @@ $.ajax ({
   newPBossAppend;
   $("#alchemyAPI").empty();
   $("#alchemyAPI").append(newPBoss);
+  }
 
 });
 
