@@ -11,10 +11,6 @@ body{
   width:100%;
   height: 440px;
 }
-#dynamic {
-  height: 440px;
-  width: 630px;
-}
 
 .fixed-bottom{
   bottom: 1px;
