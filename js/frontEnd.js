@@ -6,6 +6,7 @@ window.ajxStore = {
 
 $(document).ready(function (){
   $(".urlBtn").on("click", urlReader);
+  
 // initialize dropbox
   $(".img-dropbox").on("dragenter", noopHandler);
   $(".img-dropbox").on("dragexit", noopHandler);
@@ -30,6 +31,7 @@ function drop(evt) {
   facePlusAjax();
   alchemyAjax();    
   }
+
 //show image function
 function showImg(imgLink) {
   var newimg = $("<img>");
@@ -124,6 +126,7 @@ $.ajax ({
   newPBossAppend;
   $("#alchemyAPI").empty();
   $("#alchemyAPI").append(newPBoss);
+  }
 
 });
 
