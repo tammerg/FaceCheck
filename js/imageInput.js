@@ -1,3 +1,9 @@
+window.ajxStore = {
+  urlBuild: {
+    encodedURL: " ",
+    imgLink: " " 
+  }
+};
 
 $(document).ready(function (){
   $(".urlBtn").on("click", urlReader);
@@ -10,7 +16,6 @@ $(document).ready(function (){
   dropbox.addEventListener('drop', drop, false); 
 
 
-
 // drop box functions
 function noopHandler(evt) {
   evt.stopPropagation();
@@ -20,11 +25,12 @@ function noopHandler(evt) {
 function drop(evt) {
   evt.stopPropagation();
   evt.preventDefault();
-  var imgLink = evt.dataTransfer.getData("URL");
-  ajxStore.urlBuild.encodedURL = encodeURIComponent(imgLink);
-  showImg(imgLink);
+  ajxStore.encodedURL.imgLink = evt.dataTransfer.getData("URL");
+  ajxStore.urlBuild.encodedURL = encodeURIComponent(ajxStore.encodedURL.imgLink);
+  showImg(ajxStore.encodedURL.imgLink);
   facePlusAjax();
-  alchemyAjax();    
+  alchemyAjax(); 
+  projectOxfordAjax();   
   }
 
 //show image function
@@ -37,14 +43,15 @@ function showImg(imgLink) {
 
 // read from URL input or dropped-in image
 
-function urlReader () {
-  var imgLink = $("#url-value").val();
-  showImg(imgLink);
-  ajxStore.urlBuild.encodedURL = encodeURIComponent(imgLink);
+function urlReader() {
+  ajxStore.urlBuild.imgLink = $("#url-value").val();
+  showImg(ajxStore.urlBuild.imgLink);
+  ajxStore.urlBuild.encodedURL = encodeURIComponent(ajxStore.urlBuild.imgLink);
   console.log(ajxStore.urlBuild.encodedURL);
   facePlusAjax();
   alchemyAjax();
-}
+  projectOxfordAjax();
+  }
 
 });
 
