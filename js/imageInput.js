@@ -36,7 +36,7 @@ function drop(evt) {
 //show image function
 function showImg(imgLink) {
   var newimg = $("<img>");
-  $(newimg).attr("src", imgLink).addClass("responsive valign");
+  $(newimg).attr("src", imgLink).addClass("responsive-img center-block valign");
   $("#dropbox").empty();
   $("#dropbox").append(newimg); 
   }
