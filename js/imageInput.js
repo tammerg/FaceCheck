@@ -28,9 +28,10 @@ function drop(evt) {
   ajxStore.encodedURL.imgLink = evt.dataTransfer.getData("URL");
   ajxStore.urlBuild.encodedURL = encodeURIComponent(ajxStore.encodedURL.imgLink);
   showImg(ajxStore.encodedURL.imgLink);
-  facePlusAjax();
+  // facePlusAjax();
   alchemyAjax(); 
-  projectOxfordAjax();   
+  projectOxfordAjax();  
+  skyAjax(); 
   }
 
 //show image function
@@ -48,9 +49,10 @@ function urlReader() {
   showImg(ajxStore.urlBuild.imgLink);
   ajxStore.urlBuild.encodedURL = encodeURIComponent(ajxStore.urlBuild.imgLink);
   console.log(ajxStore.urlBuild.encodedURL);
-  facePlusAjax();
+  // facePlusAjax();
   alchemyAjax();
   projectOxfordAjax();
+  skyAjax();
   }
 
 });
