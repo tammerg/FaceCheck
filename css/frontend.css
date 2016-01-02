@@ -12,6 +12,7 @@ body{
   height: 440px;
   overflow: hidden;
   border: 1px dotted;
+  margin-top: 8px;
 }
 .responsive {
   height: 440px;
@@ -21,7 +22,6 @@ body{
   bottom: 1px;
   position: fixed;
 }
-
 html {
   font-family: 
 }
@@ -31,4 +31,6 @@ html {
 .urlInput{
   padding: 2% 0 !important;
 }    
-img
+.imglist {
+  padding: 5px;
+}

@@ -148,8 +148,6 @@ function skyShow(imageData) {
   var callResultsSadness = imageData.photos[0].tags[0].attributes.sadness.value;
   var callResultsSurprise = imageData.photos[0].tags[0].attributes.surprise.value;
 
-
-
   var newPBoss = $("<p>");
   var newSCard = $("<span>").html("SkyBiometry Face Detection API Results").addClass("card-title");
   var newPSmile = $("<p>").html("Smile: ").append(callResultsSmile);

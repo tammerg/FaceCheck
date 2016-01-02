@@ -6,6 +6,8 @@ window.ajxStore = {
 };
 
 $(document).ready(function (){
+  $(".dropdown-button").dropdown();
+  
   $(".urlBtn").on("click", urlReader);
   
 // initialize dropbox
