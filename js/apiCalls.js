@@ -112,9 +112,61 @@ function alchemyAjax() {
     .append(newPNeutral).append(newPSadness).append(newPSurprise);
   $("#oxfordAPI").empty();
   $("#oxfordAPI").append(newPBoss);
-
   
 }
+
+function skyAjax() {
+  apiAcc = {
+  skyApi: "http://api.skybiometry.com/fc/faces/detect.json?",
+  api_key: "3812961842c149eb8825921fec8d59a6",
+  api_secret: "3e012d436e254cc192669451d9d89801",
+  attributes: "age,glass,pose,gender,race,smiling"
+  }
+  var fullUrl = apiAcc.skyApi + "api_key=" + apiAcc.api_key + "&api_secret=" + apiAcc.api_secret + "&urls=" + 
+      ajxStore.urlBuild.imgLink + "&attributes=all"; 
+     
+  $.ajax ({
+    type: "GET",
+    url: fullUrl,
+    success: skyShow
+    
+    });
+  }
+
+function skyShow(imageData) {
+  console.log(imageData);
+  var callResultsAge = imageData.photos[0].tags[0].attributes.age_est.value;
+  var callResultsGender = imageData.photos[0].tags[0].attributes.gender.value;
+  var callResultsSmile =  imageData.photos[0].tags[0].attributes.smiling.value;
+  var callResultsGlass = imageData.photos[0].tags[0].attributes.glasses.value;
+  var callResultsAnger = imageData.photos[0].tags[0].attributes.anger.value;
+  var callResultsEyes= imageData.photos[0].tags[0].attributes.eyes.value;
+  var callResultsFear = imageData.photos[0].tags[0].attributes.fear.value;
+  var callResultsHappiness = imageData.photos[0].tags[0].attributes.happiness.value;
+  var callResultsLips = imageData.photos[0].tags[0].attributes.lips.value;
+  var callResultsMood = imageData.photos[0].tags[0].attributes.mood.value;
+  var callResultsSadness = imageData.photos[0].tags[0].attributes.sadness.value;
+  var callResultsSurprise = imageData.photos[0].tags[0].attributes.surprise.value;
+
+  var newPBoss = $("<p>");
+  var newSCard = $("<span>").html("SkyBiometry Face Detection API Results").addClass("card-title");
+  var newPSmile = $("<p>").html("Smile: ").append(callResultsSmile);
+  var newPGlass = $("<p>").html("Glasses: ").append(callResultsGlass);
+  var newPAnger = $("<p>").html("Anger: ").append(callResultsAnger);
+  var newPEyes = $("<p>").html("Eyes: ").append(callResultsEyes);
+  var newPFear = $("<p>").html("Fear: ").append(callResultsFear);
+  var newPHappiness = $("<p>").html("Happiness: ").append(callResultsHappiness);
+  var newPLips = $("<p>").html("Lips: ").append(callResultsLips);
+  var newPMood = $("<p>").html("Mood: ").append(callResultsMood);
+  var newPSadness = $("<p>").html("Sadness: ").append(callResultsSadness);
+  var newPSurprise = $("<p>").html("Surprise: ").append(callResultsSurprise);
+
+  newPBoss.append(newSCard).append(newPSmile).append(newPGlass)
+    .append(newPAnger).append(newPEyes).append(newPFear).append(newPHappiness).append(newPHappiness)
+    .append(newPLips).append(newPMood).append(newPSadness).append(newPSurprise);
+  $("#facePlusAPI").empty();
+  $("#facePlusAPI").append(newPBoss); 
+  }
 
 
 
