@@ -5,7 +5,9 @@ body{
   min-height: 100vh;
   flex-direction: column;
 }
-
+main{
+  flex: 1 0 auto;
+}
 /*img section*/
 .img-dropbox {
   width:100%;
@@ -26,9 +28,7 @@ body{
 html {
   font-family: 
 }
-.main {
-  flex: 1 0 auto;
-}
+
 .urlInput{
   padding: 2% 0 !important;
 }    
