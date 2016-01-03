@@ -22,9 +22,25 @@
         <li><a class="dropdown-button" href="#!" data-beloworigin="true" data-activates="dropdown3">Previous Searches<i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
       <ul class="left hide-on-med-and-down">
-        <li><a class="dropdown-button" href="#!" data-activates="dropdown2">Instructions<i class="material-icons right">arrow_drop_down</i></a></li>
+        <li> <a class="waves-effect waves-light modal-trigger" href="#modal1">Instructions</a>
+          <div id="modal1" class="modal">
+            <div class="modal-content">
+              <h4>General Instructions</h4>
+              <p>Images under 1MB or 500x500.
+              <br/>
+              Use snafu of google image, if using google image
+              <br/>
+              When dragging an image, drag the raw image and not from the site it is on
+              <br/> 
+              There are differing Rate Limits for the API's utilized within the application. If reached, our app will not function as intended. Check out the API websites on the right of ournav bar for more info!
+              </p>
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Got it!</a>
+             </div>
+          </div>
+        </li>
       </ul>
-     
     </div>
   </nav>
     <ul id="dropdown1" class="dropdown-content">
@@ -110,4 +126,5 @@
   <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
   <script type="text/javascript" src="js/imageInput.js"></script>
   <script type="text/javascript" src="js/apiCalls.js"></script>
+  <script type="text/javascript" src="js/modal.js"></script>
 </html>
