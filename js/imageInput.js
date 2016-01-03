@@ -2,7 +2,6 @@ window.ajxStore = {
   urlBuild: {
     encodedURL: " ",
     imgLink: " ",
-    imgListAdder: " "
     
   }
 };
@@ -16,7 +15,7 @@ $(document).ready(function (){
 
   $(".urlBtn").on("click", urlReader);
 
-// fireBase callback and html imagelist build
+// fireBase callback, html imagelist build, 
 
   myDataRef.on("child_added", function(snapshot) {
   var newImg = snapshot.val();
@@ -27,18 +26,20 @@ $(document).ready(function (){
   var PicList = $("#dropdown3");
   PicList.prepend(newA);
 
+   $(".imglist").on("click", function() {    
+    ajxStore.urlBuild.imgLink = ($(this).attr("src"));
+    showImg(ajxStore.urlBuild.imgLink);
+    ajxStore.urlBuild.encodedURL = encodeURIComponent(ajxStore.urlBuild.imgLink); 
+    alchemyAjax();
+    projectOxfordAjax();
+    skyAjax();
+   });
 
 
   });  
+
 //click imgList
 
-  $(".imglist").on("click", function() {    
-    var srcClick = $(this).attr("src");  
-    console.log(srcClick);
-    showImg(srcClick);
-   });
-
- 
   
 // initialize dropbox
   $(".img-dropbox").on("dragenter", noopHandler);
@@ -58,9 +59,9 @@ function drop(evt) {
   evt.stopPropagation();
   evt.preventDefault();
   ajxStore.urlBuild.imgLink = evt.dataTransfer.getData("URL");
-  myDataRef.push(ajxStore.urlBuild.imgLink);
+  myDataRef.push({url: ajxStore.urlBuild.imgLink});
+  showImg(ajxStore.urlBuild.imgLink);
   ajxStore.urlBuild.encodedURL = encodeURIComponent(ajxStore.urlBuild.imgLink);
-  showImg(ajxStore.urlBuild.encodedURL);
   // facePlusAjax();
   alchemyAjax(); 
   projectOxfordAjax();  
@@ -79,11 +80,9 @@ function showImg(imgLink) {
 
 function urlReader() {
   ajxStore.urlBuild.imgLink = $("#url-value").val();
-  showImg(ajxStore.urlBuild.imgLink);
   myDataRef.push({url: ajxStore.urlBuild.imgLink});
-  ajxStore.urlBuild.encodedURL = encodeURIComponent(ajxStore.urlBuild.imgLink);
-  // console.log(ajxStore.urlBuild.encodedURL);
-  // facePlusAjax();
+  showImg(ajxStore.urlBuild.imgLink);
+  ajxStore.urlBuild.encodedURL = encodeURIComponent(ajxStore.urlBuild.imgLink);  
   alchemyAjax();
   projectOxfordAjax();
   skyAjax();
