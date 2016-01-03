@@ -53,7 +53,7 @@ function alchemyAjax() {
   var callResultsAge = imageData.imageFaces[0].age.ageRange;
   var callResultsGender = imageData.imageFaces[0].gender.gender;
   var newPBoss = $("<p>");
-  var newSCard = $("<span>").html("Watson Alchemy Face Detection API Results").addClass("card-title");
+  var newSCard = $("<span>").html("Watson Alchemy Face Detection API").addClass("card-title");
   var newPAge = $("<p>").html("Age: ").append(callResultsAge);
   var newPGender = $("<p>").html("Gender: ").append(callResultsGender);
   var newPIdentity = $("<p>").html("Celebrity Name: ");
@@ -75,7 +75,7 @@ function alchemyAjax() {
 
     var v1 =  ajxStore.urlBuild.imgLink;
     var v2 = "{\'url\': \'" + v1 + " \'}";
-    console.log(v2);
+    // console.log(v2);
     
     $.ajax({
         url: "https://api.projectoxford.ai/emotion/v1.0/recognize?subscription-key=b3b1af6be31f456a9d6d215f8a8ae23d", 
@@ -100,7 +100,7 @@ function alchemyAjax() {
   var callResultsSurprise = imageData[0].scores.surprise;
 
   var newPBoss = $("<p>");
-  var newSCard = $("<span>").html("Project Oxford Emotional Recognition API Results").addClass("card-title");
+  var newSCard = $("<span>").html("Project Oxford Emotional Recognition API").addClass("card-title");
   var newPAnger = $("<p>").html("Anger: ").append(callResultsAnger);
   var newPDisgust = $("<p>").html("Disgust: ").append(callResultsDisgust);
   var newPFear = $("<p>").html("Fear: ").append(callResultsFear);
@@ -134,7 +134,7 @@ function skyAjax() {
   }
 
 function skyShow(imageData) {
-  console.log(imageData);
+  // console.log(imageData);
   var callResultsAge = imageData.photos[0].tags[0].attributes.age_est.value;
   var callResultsGender = imageData.photos[0].tags[0].attributes.gender.value;
   var callResultsSmile =  imageData.photos[0].tags[0].attributes.smiling.value;
@@ -149,7 +149,7 @@ function skyShow(imageData) {
   var callResultsSurprise = imageData.photos[0].tags[0].attributes.surprise.value;
 
   var newPBoss = $("<p>");
-  var newSCard = $("<span>").html("SkyBiometry Face Detection API Results").addClass("card-title");
+  var newSCard = $("<span>").html("SkyBiometry Face Detection and Recognition API").addClass("card-title");
   var newPSmile = $("<p>").html("Smile: ").append(callResultsSmile);
   var newPGlass = $("<p>").html("Glasses: ").append(callResultsGlass);
   var newPAnger = $("<p>").html("Anger: ").append(callResultsAnger);

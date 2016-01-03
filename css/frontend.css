@@ -13,6 +13,7 @@ body{
   overflow: hidden;
   border: 1px dotted;
   margin-top: 8px;
+  margin-bottom: 5px;
 }
 .responsive {
   height: 440px;
@@ -33,4 +34,13 @@ html {
 }    
 .imglist {
   padding: 5px;
+}
+nav{
+  color: black;
+}
+.left{
+  left: 0;
+}
+#sbutton{
+  padding-left: 10px;
 }
