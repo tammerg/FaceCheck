@@ -1,14 +1,15 @@
 function checkScreen() {
     var docW = $(document).width();
     if (docW < 992) {
-        $('.API').detach().appendTo('.mobile');
+        $('.urlInput').detach().appendTo('.mobileUrl');
     } else {
-        $('.input').detach().appendTo('.mobileUrl');
+        $('.urlInput').detach().appendTo('.desktop-wrap');
     }
 }
 $(function() {
     checkScreen();
 });
+
 $(window).resize(function() {
     checkScreen();
 });
