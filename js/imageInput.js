@@ -19,7 +19,7 @@ $(document).ready(function (){
  $('.modal-trigger').leanModal();
 
 // fireBase callback, html imagelist build
- myDataRef.on("child_added", function(snapshot) {
+ myDataRef.limitToLast(5).on("child_added", function(snapshot) {
   var newImg = snapshot.val();
   var newA = $("<a>");
   var newAImg = $("<img>").attr("src", newImg.url);
