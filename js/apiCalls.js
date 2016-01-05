@@ -2,7 +2,7 @@
  function alchemyAjax() {
   apiAcc = {
   alchApi: "http://gateway-a.watsonplatform.net/calls/image/ImageGetRankedImageFaceTags?",
-  apikey: "c84b707045f2eaf44ac7896ca8638274c82489c4",
+  apikey: "76e02412d339aead419734437a910893c40ddd5d",
   output: "json"
   }
 
@@ -17,6 +17,7 @@
   }
 
  function alchemyShow(imageData) {
+  console.log(imageData);
   var callResultsAge = imageData.imageFaces[0].age.ageRange;
   var callResultsGender = imageData.imageFaces[0].gender.gender;
   var newPBoss = $("<p>");
@@ -55,6 +56,7 @@
 
   
  function projectOxfordShow(imageData) {
+  console.log(imageData);
   var callResultsAnger = imageData[0].scores.anger;
   var callResultsContempt = imageData[0].scores.contempt;
   var callResultsDisgust = imageData[0].scores.disgust;
@@ -97,6 +99,7 @@
  }
 
  function skyShow(imageData) {
+  console.log(imageData);
   var callResultsAge = imageData.photos[0].tags[0].attributes.age_est.value;
   var callResultsGender = imageData.photos[0].tags[0].attributes.gender.value;
   var callResultsSmile =  imageData.photos[0].tags[0].attributes.smiling.value;
