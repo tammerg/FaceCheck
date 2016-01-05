@@ -16,7 +16,6 @@
     <div class="nav-wrapper black">
       <a href="#" class="brand-logo center">FaceCheck</a>
             <img class="right hide-on-small-only" src="mansilhwhite.png"> 
-
       <ul class="right hide-on-med-and-down">
         <li><a class="dropdown-button" href="#!" data-beloworigin="true" data-activates="dropdown1">API Links<i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
@@ -25,13 +24,31 @@
        <ul class="left">
         <li><a class="dropdown-button hide-on-small-only" href="#!" data-beloworigin="true" data-activates="dropdown3">Previous Searches<i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
-
-      <ul class="left hide-on-med-and-down">
-        <li><a class="dropdown-button" href="#!" data-activates="dropdown2">Instructions<i class="material-icons right">arrow_drop_down</i></a></li>
-      </ul>
-
-    </div>
+     
+        <a class="left hide-on-med-and-down waves-effect waves-light modal-trigger" href="#modal1">Instructions</a>
+          <div id="modal1" class="modal">
+            <div class="modal-content">
+              <h4>FaceCheck Instructions</h4>
+        
+              <ul>
+              <li>1. Drag an image directly into the input box or cut and paste a URL into the blank below it and click "Submit."</li>
+                <li>2. To use an image from a metasearch site such as Google Images, click on it to isolate it on a separate page before copying and pasting in its url or dragging it into the input box. </li>
+                <li>3. Searches by all other users of the site may be seen under "Previous Searches."</li>
+               
+                <li>*Images around 500 pixels x 500 pixels generally work best for our app.</li>
+                <li>*Note that there are varying daily rate limits for the APIs utilized within the application. If they are reached, FaceCheck will not function as intended. </li>
+                <li>*Check out "API Links" on the right side of our navigation bar for more info!</li>
+                </ul>                                                                                 
+            </div>
+            <div class="modal-footer">
+              <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Got it!</a>
+             </div>
+          </div>
+     
+    
   </nav>
+
+
  
     <ul id="dropdown1" class="dropdown-content">
       <li><a href="http://www.alchemyapi.com/products/alchemyvision/face-detection">Alchemy</a></li>

@@ -44,3 +44,9 @@ nav{
 #sbutton{
   padding-left: 10px;
 }
+.modal-content{
+  line-height: 20px;
+
+h4 {
+  text-align: center;
+}

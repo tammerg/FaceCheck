@@ -15,6 +15,8 @@ $(document).ready(function (){
 
   $(".urlBtn").on("click", urlReader);
 
+   $('.modal-trigger').leanModal();
+
 // fireBase callback, html imagelist build, 
 
   myDataRef.on("child_added", function(snapshot) {
