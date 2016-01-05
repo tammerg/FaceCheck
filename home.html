@@ -6,7 +6,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
   <link rel="stylesheet" type="text/css" href="css/frontend.css">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
@@ -15,49 +14,46 @@
   <nav>
     <div class="nav-wrapper black">
       <a href="#" class="brand-logo center">FaceCheck</a>
-            <img class="right hide-on-small-only" src="mansilhwhite.png"> 
+      <img class="right hide-on-small-only" src="mansilhwhite.png"> 
       <ul class="right hide-on-med-and-down">
         <li><a class="dropdown-button" href="#!" data-beloworigin="true" data-activates="dropdown1">API Links<i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
-
-
-       <ul class="left">
+      <ul class="left">
         <li><a class="dropdown-button hide-on-small-only" href="#!" data-beloworigin="true" data-activates="dropdown3">Previous Searches<i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
      
-        <a class="left hide-on-med-and-down waves-effect waves-light modal-trigger" href="#modal1">Instructions</a>
-          <div id="modal1" class="modal">
-            <div class="modal-content">
-              <h4>FaceCheck Instructions</h4>
-        
-              <ul>
+      <a class="left hide-on-med-and-down waves-effect waves-light modal-trigger" href="#modal1">Instructions</a>
+        <div id="modal1" class="modal">
+          <div class="modal-content">
+            <h4>FaceCheck Instructions</h4>
+            <br />   
+            <h6>FaceCheck demonstrates three of the best facial recognition and analysis APIs currently available.</h6>
+            <br />
+            <ul>
+              <li>Usage: </li>
               <li>1. Drag an image directly into the input box or cut and paste a URL into the blank below it and click "Submit."</li>
-                <li>2. To use an image from a metasearch site such as Google Images, click on it to isolate it on a separate page before copying and pasting in its url or dragging it into the input box. </li>
-                <li>3. Searches by all other users of the site may be seen under "Previous Searches."</li>
-               
-                <li>*Images around 500 pixels x 500 pixels generally work best for our app.</li>
-                <li>*Note that there are varying daily rate limits for the APIs utilized within the application. If they are reached, FaceCheck will not function as intended. </li>
-                <li>*Check out "API Links" on the right side of our navigation bar for more info!</li>
-                </ul>                                                                                 
-            </div>
-            <div class="modal-footer">
-              <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Got it!</a>
-             </div>
+              <li>2. To use an image from a metasearch site such as Google Images, click on it to isolate it on a separate page before copying and pasting in its url or dragging it into the input box. </li>
+              <li>3. Searches by all other users of the site may be seen under "Previous Searches."</li>
+              <li>*Relatively recent color images with sizes of 500 pixels x 500 pixels generally work best for our app.</li>
+              <li>*Note that there are varying daily rate limits for the utilizied APIs. If these are reached, FaceCheck will not function as intended. </li>
+              <li>*Check out "API Links" on the right side of our navigation bar for more info about the respective APIs!</li>
+            </ul>                                                                                 
           </div>
-     
-    
-  </nav>
-
-
+          <div class="modal-footer">
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Got it!</a>
+          </div>
+        </div>
  
-    <ul id="dropdown1" class="dropdown-content">
-      <li><a href="http://www.alchemyapi.com/products/alchemyvision/face-detection">Alchemy</a></li>
-      <li><a href="https://www.skybiometry.com/Demo">SkyBiometry</a></li>
-      <li><a href="https://msdn.microsoft.com/en-US/library/mt622110.aspx">Project Oxford</a></li>
-    </ul>
+      <ul id="dropdown1" class="dropdown-content">
+        <li><a href="http://www.alchemyapi.com/products/alchemyvision/face-detection">Alchemy</a></li>
+        <li><a href="https://www.skybiometry.com/Demo">SkyBiometry</a></li>
+        <li><a href="https://msdn.microsoft.com/en-US/library/mt622110.aspx">Project Oxford</a></li>
+      </ul>
 
-    <ul id="dropdown3" class="dropdown-content">
-    </ul>
+      <ul id="dropdown3" class="dropdown-content">
+      </ul>
+    </div>      
+  </nav>
 
   <main>
     <div class="row">
@@ -72,49 +68,45 @@
     <div class="row">
       <div class="col s6 m6">
         <div id="dropbox" class="col s12 img-dropbox lighten-5 valign-wrapper hide-on-small-only">
-      </div>  
-      <div class="urlInput">
+        </div>  
+        <div class="urlInput">
+        </div>
         <div class="col s9">
           <input id="url-value" placeholder="Paste URL link here" type="text"> 
         </div>
-      <div class="col s3 hide-on-med-and-down">
-        <button id="sbutton" class="z-depth-5 btn waves-effect waves-light urlBtn" type="submitted" name="action">Submit
+        <div class="col s3">
+          <button id="sbutton" class="z-depth-5 btn waves-effect waves-light urlBtn" type="submitted" name="action">Submit
             <i class="material-icons right">send</i>
-        </button>
-      </div>
-      </div>
-    </div>
-    
-    <div class="col s12 m6">
-      <div class="card z-depth-3 blue-grey darken-1">
-        <div class="card-content white-text" id="alchemyAPI">
-          <span class="card-title">Watson Alchemy Face Detection API</span>
+          </button>
         </div>
-        <div class="card-action ">
-          <a>API Results</a>
-        </div>
-      </div>   
-
-    <div class="card z-depth-3 blue-grey darken-2">
-      <div class="card-content white-text" id="facePlusAPI">
-        <span class="card-title">SkyBiometry Face Detection and Recognition API</span>
       </div>
-        <div class="card-action">
-          <a href="http://www.faceplusplus.com">API Results</a>
+      <div class="col s12 m6">
+        <div class="card z-depth-3 blue-grey darken-1">
+          <div class="card-content white-text" id="alchemyAPI">
+            <span class="card-title">Watson Alchemy Face Detection API</span>
+          </div>
+          <div class="card-action ">
+            <a>API Results</a>
+          </div>
+        </div>   
+        <div class="card z-depth-3 blue-grey darken-2">
+          <div class="card-content white-text" id="facePlusAPI">
+            <span class="card-title">SkyBiometry Face Detection and Recognition API</span>
+          </div>
+          <div class="card-action">
+            <a href="http://www.faceplusplus.com">API Results</a>
+          </div>
+        </div> 
+        <div class="card z-depth-3 blue-grey darken-3">
+          <div class="card-content white-text" id="oxfordAPI">
+            <span class="card-title">Project Oxford Emotional Recognition API</span>
+          </div>
+          <div class="card-action">
+            <a href="#">API Results</a>
+          </div>
         </div>
       </div> 
-      
-
-    <div class="card z-depth-3 blue-grey darken-3">
-      <div class="card-content white-text" id="oxfordAPI">
-        <span class="card-title">Project Oxford Emotional Recognition API</span>
-      </div>
-        <div class="card-action">
-          <a href="#">API Results</a>
-        </div>
-      </div>
-
-    </div> 
+    </div>
   </main>
   
   <footer class="page-footer black">
@@ -122,7 +114,6 @@
       <div class="col l12 s12">
         <h5 class="white-text center">Thanks</h5>
         <p class="grey-text text-lighten-4 center">A thank you to IBMAlchemy, SkyBiometry and Microsoft Project Oxford for allowing us to utilize their APIs!</p>
-        </div>
       </div>
     </div>
   </footer>

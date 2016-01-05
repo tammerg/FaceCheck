@@ -10,7 +10,7 @@ main{
 }
 /*img section*/
 .img-dropbox {
-  width:100%;
+  width: 100%;
   height: 440px;
   overflow: hidden;
   border: 1px dotted;
@@ -21,32 +21,31 @@ main{
   height: 440px;
   width: 620px;
 }
-.fixed-bottom{
+.fixed-bottom {
   bottom: 1px;
   position: fixed;
 }
 html {
   font-family: 
 }
-
-.urlInput{
+.urlInput {
   padding: 2% 0 !important;
 }    
 .imglist {
   padding: 5px;
 }
-nav{
+nav {
   color: black;
 }
-.left{
+.left {
   left: 0;
 }
-#sbutton{
+#sbutton {
   padding-left: 10px;
 }
-.modal-content{
+.modal-content {
   line-height: 20px;
-
-h4 {
+}  
+h4, h6 {
   text-align: center;
 }

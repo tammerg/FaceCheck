@@ -13,6 +13,7 @@ Use various facial analysis APIs to determine age, gender, identity, facial acce
 * Firebase
 
 ### Deployed Link
+* https://facecheck.herokuapp.com
 
 ### APIs Used
 * [SkyBiometry Face Detection and Recognition API] (https://www.skybiometry.com/Demo)
@@ -20,6 +21,6 @@ Use various facial analysis APIs to determine age, gender, identity, facial acce
 * [Alchemy Face Detection/Recognition API] (http://www.alchemyapi.com/products/alchemyvision/face-detection)
 
 ### Trello Link
-https://trello.com/b/VqS1NjQy/front-end-project
+* https://trello.com/b/VqS1NjQy/front-end-project
 
 
