@@ -15,15 +15,15 @@
   <nav>
     <div class="nav-wrapper black">
       <a href="#" class="brand-logo center">FaceCheck</a>
-            <img class="right" src="mansilhwhite.png"> 
+            <img class="right hide-on-small-only" src="mansilhwhite.png"> 
 
       <ul class="right hide-on-med-and-down">
         <li><a class="dropdown-button" href="#!" data-beloworigin="true" data-activates="dropdown1">API Links<i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
 
 
-       <ul class="left hide-on-med-and-down">
-        <li><a class="dropdown-button" href="#!" data-beloworigin="true" data-activates="dropdown3">Previous Searches<i class="material-icons right">arrow_drop_down</i></a></li>
+       <ul class="left">
+        <li><a class="dropdown-button hide-on-small-only" href="#!" data-beloworigin="true" data-activates="dropdown3">Previous Searches<i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
 
       <ul class="left hide-on-med-and-down">
@@ -40,37 +40,34 @@
     </ul>
 
     <ul id="dropdown3" class="dropdown-content">
-      <!-- <a href="#one!"><img class="responsive-img center-block imglist" src="img/barack.png"></a> -->
-      <!-- <a href="#two!"><img class="responsive-img center-block imglist" src="img/hillary.jpg"></a> -->
-      <!-- <a href="#three!"><img class="responsive-img center-block imglist" src="img/clinton.jpg"></a> -->
-      <!-- <a href="#four!"><img class="responsive-img center-block imglist" src="img/carter.jpg"></a> -->
-      <!-- <a href="#five!"><img class="responsive-img center-block imglist" src="img/nelson.jpg"></a> -->
     </ul>
 
   <main>
     <div class="row">
-      <div class="col s6 center hide-on-med-and-down">
+      <div class="col s6 center hide-on-small-only">
         <h3>Image Input</h3>
       </div>
-      <div class="col s6 center hide-on-med-and-down">
+      <div class="col s6 center hide-on-small-only">
         <h3>API Output</h3>
       </div>
     </div>
+
     <div class="row">
       <div class="col s6 m6">
-        <div id="dropbox" class="col s12 img-dropbox lighten-5 valign-wrapper hide-on-med-and-down">
+        <div id="dropbox" class="col s12 img-dropbox lighten-5 valign-wrapper hide-on-small-only">
       </div>  
       <div class="urlInput">
         <div class="col s9">
           <input id="url-value" placeholder="Paste URL link here" type="text"> 
         </div>
-      <div class="col s3">
+      <div class="col s3 hide-on-med-and-down">
         <button id="sbutton" class="z-depth-5 btn waves-effect waves-light urlBtn" type="submitted" name="action">Submit
             <i class="material-icons right">send</i>
         </button>
       </div>
       </div>
     </div>
+    
     <div class="col s12 m6">
       <div class="card z-depth-3 blue-grey darken-1">
         <div class="card-content white-text" id="alchemyAPI">
@@ -102,6 +99,7 @@
 
     </div> 
   </main>
+  
   <footer class="page-footer black">
     <div class="row">
       <div class="col l12 s12">
@@ -111,6 +109,7 @@
       </div>
     </div>
   </footer>
+
 </body>
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
