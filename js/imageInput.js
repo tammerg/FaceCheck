@@ -1,3 +1,4 @@
+
 window.ajxStore = {
   urlBuild: {
     encodedURL: " ",
@@ -19,25 +20,38 @@ $(document).ready(function (){
  $('.modal-trigger').leanModal();
 
 // fireBase callback, html imagelist build
- myDataRef.limitToLast(5).on("child_added", function(snapshot) {
-  var newImg = snapshot.val();
-  var newA = $("<a>");
-  var newAImg = $("<img>").attr("src", newImg.url);
-  newAImg.addClass("responsive-img center-block imglist");
-  newA.append(newAImg);
-  var picList = $("#dropdown3");
-  picList.prepend(newA);
 
-  $(".imglist").on("click", function() {    
+
+myDataRef.on("child_added", function(snapshot) {
+  var newImg = snapshot.val().url;
+   snapshot.forEach(function(urlSnapshot) {
+     if (!newImg) {
+       newImg = urlSnapshot.val();
+     }
+      console.log(newImg);
+      var newA = $("<a>");
+      var newAImg = $("<img>").attr("src", newImg);   
+      newAImg.addClass("responsive-img center-block imglist");
+      newA.append(newAImg);
+      var picList = $("#dropdown3");
+      picList.prepend(newA);
+    });   
+   
+
+  $(".imglist").on("click", function() { 
+  
+   var a = ($(this).attr("src"));
+   console.log(a);
    ajxStore.urlBuild.imgLink = ($(this).attr("src"));
    showImg(ajxStore.urlBuild.imgLink);
    ajxStore.urlBuild.encodedURL = encodeURIComponent(ajxStore.urlBuild.imgLink); 
-   alchemyAjax();
-   projectOxfordAjax();
-   skyAjax();
+   // alchemyAjax();
+   // projectOxfordAjax();
+   // skyAjax();
   });
+ }); 
 
- });  //end Firebase function
+  //end Firebase function
 
   
 // initialize dropbox
