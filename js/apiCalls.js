@@ -17,7 +17,7 @@
   }
 
  function alchemyShow(imageData) {
-  // console.log(imageData);
+  console.log(imageData);
   var callResultsAge = imageData.imageFaces[0].age.ageRange;
   var callResultsGender = imageData.imageFaces[0].gender.gender;
   var newPBoss = $("<p>");
