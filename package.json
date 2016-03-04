@@ -1,0 +1,20 @@
+{
+  "name": "facecheck",
+  "version": "1.0.0",
+  "description": "FaceCheck",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tammerg/FaceCheck.git"
+  },
+  "author": "Long, Evan, Tammer, and Stephanie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tammerg/FaceCheck/issues"
+  },
+  "homepage": "https://github.com/tammerg/FaceCheck#readme"
+}

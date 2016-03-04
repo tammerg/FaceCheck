@@ -4,7 +4,7 @@
   <title>FaceCheck</title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
-  <link rel="stylesheet" type="text/css" href="css/frontend.css">
+  <link rel="stylesheet" type="text/css" href="/css/frontend.css">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
@@ -14,19 +14,19 @@
   <nav>
     <div class="nav-wrapper black">
       <a href="#" class="brand-logo center">FaceCheck</a>
-      <img class="right hide-on-small-only" src="mansilhwhite.png"> 
+      <img class="right hide-on-small-only" src="mansilhwhite.png">
       <ul class="right hide-on-med-and-down">
         <li><a class="dropdown-button" href="#!" data-beloworigin="true" data-activates="dropdown1">API Links<i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
       <ul class="left">
         <li><a class="dropdown-button hide-on-small-only" href="#!" data-beloworigin="true" data-activates="dropdown3">Previous Searches<i class="material-icons right">arrow_drop_down</i></a></li>
       </ul>
-     
+
       <a class="left hide-on-med-and-down waves-effect waves-light modal-trigger" href="#modal1">Instructions</a>
         <div id="modal1" class="modal">
           <div class="modal-content">
             <h4>FaceCheck Instructions</h4>
-            <br />   
+            <br />
             <h6>FaceCheck demonstrates three of the best facial recognition and analysis APIs currently available.</h6>
             <br />
             <ul>
@@ -37,13 +37,13 @@
               <li>*Relatively recent color images with sizes of 500 pixels x 500 pixels generally work best for our app.</li>
               <li>*Note that there are varying daily rate limits for the utilizied APIs. If these are reached, FaceCheck will not function as intended. </li>
               <li>*Check out "API Links" on the right side of our navigation bar for more info about the respective APIs!</li>
-            </ul>                                                                                 
+            </ul>
           </div>
           <div class="modal-footer">
             <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Got it!</a>
           </div>
         </div>
- 
+
       <ul id="dropdown1" class="dropdown-content">
         <li><a href="http://www.alchemyapi.com/products/alchemyvision/face-detection">Alchemy</a></li>
         <li><a href="https://www.skybiometry.com/Demo">SkyBiometry</a></li>
@@ -52,7 +52,7 @@
 
       <ul id="dropdown3" class="dropdown-content">
       </ul>
-    </div>      
+    </div>
   </nav>
 
   <main>
@@ -68,11 +68,11 @@
     <div class="row">
       <div class="col s6 m6">
         <div id="dropbox" class="col s12 img-dropbox lighten-5 valign-wrapper hide-on-small-only">
-        </div>  
+        </div>
         <div class="urlInput">
         </div>
         <div class="col s9">
-          <input id="url-value" placeholder="Paste URL link here" type="text"> 
+          <input id="url-value" placeholder="Paste URL link here" type="text">
         </div>
         <div class="col s3">
           <button id="sbutton" class="z-depth-5 btn waves-effect waves-light urlBtn" type="submitted" name="action">Submit
@@ -88,7 +88,7 @@
           <div class="card-action ">
             <a>API Results</a>
           </div>
-        </div>   
+        </div>
         <div class="card z-depth-3 blue-grey darken-2">
           <div class="card-content white-text" id="facePlusAPI">
             <span class="card-title">SkyBiometry Face Detection and Recognition API</span>
@@ -96,7 +96,7 @@
           <div class="card-action">
             <a href="http://www.faceplusplus.com">API Results</a>
           </div>
-        </div> 
+        </div>
         <div class="card z-depth-3 blue-grey darken-3">
           <div class="card-content white-text" id="oxfordAPI">
             <span class="card-title">Project Oxford Emotional Recognition API</span>
@@ -105,10 +105,10 @@
             <a href="#">API Results</a>
           </div>
         </div>
-      </div> 
+      </div>
     </div>
   </main>
-  
+
   <footer class="page-footer black">
     <div class="row">
       <div class="col l12 s12">
@@ -122,6 +122,6 @@
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
   <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
-  <script type="text/javascript" src="js/imageInput.js"></script>
-  <script type="text/javascript" src="js/apiCalls.js"></script>
+  <script type="text/javascript" src="/js/imageInput.js"></script>
+  <script type="text/javascript" src="/js/apiCalls.js"></script>
 </html>
