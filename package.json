@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/tammerg/FaceCheck/issues"
   },
-  "homepage": "https://github.com/tammerg/FaceCheck#readme"
+  "homepage": "https://github.com/tammerg/FaceCheck#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
 }
