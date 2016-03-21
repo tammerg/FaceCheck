@@ -20,6 +20,7 @@ $(document).ready(function (){
 
 // fireBase callback, html imagelist build
  myDataRef.limitToLast(5).on("child_added", function(snapshot) {
+  console.log(snapshot.val());
   var newImg = snapshot.val();
   var newA = $("<a>");
   var newAImg = $("<img>").attr("src", newImg.url);
@@ -28,6 +29,10 @@ $(document).ready(function (){
   var picList = $("#dropdown3");
   picList.prepend(newA);
 
+
+
+ });  //end Firebase function
+
   $(".imglist").on("click", function() {    
    ajxStore.urlBuild.imgLink = ($(this).attr("src"));
    showImg(ajxStore.urlBuild.imgLink);
@@ -35,9 +40,7 @@ $(document).ready(function (){
    alchemyAjax();
    projectOxfordAjax();
    skyAjax();
-  });
-
- });  //end Firebase function
+  }); 
 
   
 // initialize dropbox
